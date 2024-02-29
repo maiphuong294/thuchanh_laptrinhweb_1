@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Trắc nghiệm demo</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bài thi trắc nghiệm</h1>
+        <form id="userInfoForm">
+            <label for="fullName">Họ và tên:</label>
+            <input type="text" id="fullName" required>
+
+            <label for="dob">Ngày tháng năm sinh:</label>
+            <input type="date" id="dob" required>
+
+            <label for="studentID">Mã sinh viên:</label>
+            <input type="text" id="studentID" required>
+
+            <label for="class">Lớp:</label>
+            <input type="text" id="class" required>
+
+            <button type="button" onclick="startQuiz()">Bắt đầu</button>
+        </form>
+
+        <form id="quizForm" style="display: none;">
+            <h3>Nhóm câu hỏi 1: Lựa chọn Đúng / Sai</h3>
+            <div>
+                <label>1. Bắc Kinh có phải thủ đô của Việt Nam không?
+                    <br>
+                    <input type="radio" name="11" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="1" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>2. Việt Nam có 64 dân tộc có đúng không?
+                    <br>
+                    <input type="radio" name="12" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="12" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>3. Hué có diện tích lớn hơn Hà Nội.
+                    <br>
+                    <input type="radio" name="13" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="13" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>4. Hải Phòng là thanh phố cảng?
+                    <br>
+                    <input type="radio" name="14" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="14" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>5. Lạng Sơn giáp với Trung Quốc?
+                    <br>
+                    <input type="radio" name="15" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="15" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>6. Hà Nội có diện tích lớn hơn 10000m2?
+                    <br>
+                    <input type="radio" name="16" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="16" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>7. Đồng Nai giáp với Bình Dương?
+                    <br>
+                    <input type="radio" name="17" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="17" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>8. Mật độ dân số ở Hà Nội lớn nhất Việt Nam?
+                    <br>
+                    <input type="radio" name="18" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="18" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>9. Đà Nẵng mạnh về phát triển nông nghiệp?
+                    <br>
+                    <input type="radio" name="19" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="19" value="false"> Sai
+                </label>
+            </div>
+            <div>
+                <label>10. Miền Nam có diện tích lớn hơn miền Bắc?
+                    <br>
+                    <input type="radio" name="110" value="true"> Đúng
+                    <br>
+                    <input type="radio" name="110" value="false"> Sai
+                </label>
+            </div>
+
+
+            <h3>Nhóm câu hỏi 2: Chọn 1 trong 4 đáp án</h3>
+
+            <div>
+                <label>1. Đâu là thủ đô của Pháp?
+                    <div>
+                        <input type="radio" name="21" value="Berlin"> Berlin<br>
+                        <input type="radio" name="21" value="Rome"> Rome<br>
+                        <input type="radio" name="21" value="Paris"> Paris<br>
+                        <input type="radio" name="21" value="Madrid"> Madrid
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>2. Thủ đô của việt Nam là?
+                    <div>
+                        <input type="radio" name="22" value="Hà Nội"> Hà Nội<br>
+                        <input type="radio" name="22" value="Huế"> Huế<br>
+                        <input type="radio" name="22" value="Hải Dương"> Hải Dương<br>
+                        <input type="radio" name="22" value="Cao Bằng"> Cao Bằng
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>3. Việt Nam có mấy thành phố cảng?
+                    <div>
+                        <input type="radio" name="23" value="1"> 1<br>
+                        <input type="radio" name="23" value="2"> 2<br>
+                        <input type="radio" name="23" value="3"> 3<br>
+                        <input type="radio" name="23" value="4"> 4
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>4. Ngày mai là thứ mấy?
+                    <div>
+                        <input type="radio" name="24" value="1"> CN<br>
+                        <input type="radio" name="24" value="2"> 2<br>
+                        <input type="radio" name="24" value="3"> 3<br>
+                        <input type="radio" name="24" value="4"> 4
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>5. Một ngày có bao nhiêu kíp học?
+                    <div>
+                        <input type="radio" name="25" value="1"> 1<br>
+                        <input type="radio" name="25" value="8"> 8<br>
+                        <input type="radio" name="25" value="9"> 9<br>
+                        <input type="radio" name="25" value="7"> 7
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>6. Hà Nội có mây quận?
+                    <div>
+                        <input type="radio" name="26" value="Berlin"> Berlin<br>
+                        <input type="radio" name="26" value="Rome"> Rome<br>
+                        <input type="radio" name="26" value="Paris"> Paris<br>
+                        <input type="radio" name="26" value="Madrid"> Madrid
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>7. Đâu là thủ đô của Pháp?
+                    <div>
+                        <input type="radio" name="27" value="Berlin"> Berlin<br>
+                        <input type="radio" name="27" value="Rome"> Rome<br>
+                        <input type="radio" name="27" value="Paris"> Paris<br>
+                        <input type="radio" name="27" value="Madrid"> Madrid
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>8. Đâu là thủ đô của Pháp?
+                    <div>
+                        <input type="radio" name="28" value="Berlin"> Berlin<br>
+                        <input type="radio" name="28" value="Rome"> Rome<br>
+                        <input type="radio" name="28" value="Paris"> Paris<br>
+                        <input type="radio" name="28" value="Madrid"> Madrid
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>9. Đâu là thủ đô của Pháp?
+                    <div>
+                        <input type="radio" name="29" value="Berlin"> Berlin<br>
+                        <input type="radio" name="29" value="Rome"> Rome<br>
+                        <input type="radio" name="29" value="Paris"> Paris<br>
+                        <input type="radio" name="29" value="Madrid"> Madrid
+                    </div>
+                </label>
+            </div>
+            <div>
+                <label>10. Đâu là thủ đô của Pháp?
+                    <div>
+                        <input type="radio" name="210" value="Berlin"> Berlin<br>
+                        <input type="radio" name="210" value="Rome"> Rome<br>
+                        <input type="radio" name="210" value="Paris"> Paris<br>
+                        <input type="radio" name="210" value="Madrid"> Madrid
+                    </div>
+                </label>
+            </div>
+
+            <h3>Nhóm câu hỏi 3: Chọn nhiều đáp án</h3>
+            <div>
+                <label>1. Chọn các thành phố ở Việt Nam.
+                    <br>
+                    <input type="checkbox" name="31" value="Hà Nội"> Hà Nội <br>
+                    <input type="checkbox" name="31" value="Bỉ">Bỉ <br>
+                    <input type="checkbox" name="31" value="Bỉ Ngạn">Bỉ Ngạn <br>
+                    <input type="checkbox" name="31" value="Huế"> Huế
+                </label>
+            </div>
+            <div>
+                <label>2. Số lượng di sản của Việt Nam?
+                    <br>
+                    <input type="checkbox" name="32" value="1"> 1<br>
+                    <input type="checkbox" name="32" value="2"> 2<br>
+                    <input type="checkbox" name="32" value="3"> 3<br>
+                    <input type="checkbox" name="32" value="4"> 4
+                </label>
+            </div>
+            <div>
+                <label>3. Diện tích Huế?
+                    <br>
+                    <input type="checkbox" name="33" value="1000m2"> 1000m2<br>
+                    <input type="checkbox" name="33" value="500m2"> 500m2<br>
+                    <input type="checkbox" name="33" value="5m2"> 5m2<br>
+                    <input type="checkbox" name="33" value="1m2"> 1m2
+                </label>
+            </div>
+            <div>
+                <label>4. Số lượng cá thể đặc biệt trong bể?
+                    <br>
+                    <input type="checkbox" name="34" value="1"> 1 <br>
+                    <input type="checkbox" name="34" value="2"> 2 <br>
+                    <input type="checkbox" name="34" value="3"> 3<br>
+                    <input type="checkbox" name="34" value="4"> 4
+                </label>
+            </div>
+            <div>
+                <label>5. GDP của Việt Nam năm 2024?
+                    <br>
+                    <input type="checkbox" name="35" value="1"> 1<br>
+                    <input type="checkbox" name="35" value="2"> 2 <br>
+                    <input type="checkbox" name="35" value="3"> 3 <br>
+                    <input type="checkbox" name="35" value="4"> 4
+                </label>
+            </div>
+            <div>
+                <label>6. Sinh nhật của Bác Hồ?
+                    <br>
+                    <input type="checkbox" name="36" value="1"> 1<br>
+                    <input type="checkbox" name="36" value="2"> 2<br>
+                    <input type="checkbox" name="36" value="3"> 3<br>
+                    <input type="checkbox" name="36" value="4"> 4
+                </label>
+            </div>
+            <div>
+                <label>7. Số lượng huyện của Hà Nội?
+                    <br>
+                    <input type="checkbox" name="37" value="2"> 2 <br>
+                    <input type="checkbox" name="37" value="4"> 4 <br>
+                    <input type="checkbox" name="37" value="25"> 25 <br>
+                    <input type="checkbox" name="37" value="11"> 11
+                </label>
+            </div>
+            <div>
+                <label>8. Hà Nội giáp mấy tỉnh?
+                    <br>
+                    <input type="checkbox" name="38" value="3"> 3<br>
+                    <input type="checkbox" name="38" value="34"> 34 <br>
+                    <input type="checkbox" name="38" value="5"> 5<br>
+                    <input type="checkbox" name="38" value="6"> 6
+                </label>
+            </div>
+            <div>
+                <label>9. Nghệ An giáp mấy tỉnh?
+                    <br>
+                    <input type="checkbox" name="39" value="7"> 7<br>
+                    <input type="checkbox" name="39" value="8"> 8 <br>
+                    <input type="checkbox" name="39" value="9"> 9<br>
+                    <input type="checkbox" name="39" value="6"> 6
+                </label>
+            </div>
+            <div>
+                <label>10. Huế giáp mấy tỉnh?
+                    <br>
+                    <input type="checkbox" name="310" value="7"> 7<br>
+                    <input type="checkbox" name="310" value="8"> 8<br>
+                    <input type="checkbox" name="310" value="9"> 9<br>
+                    <input type="checkbox" name="310" value="10"> 10
+                </label>
+            </div>
+            <h3>Nhóm câu hỏi 4: Trả lời tự luận</h3>
+            <div>
+                <label>1. Miêu tả ngắn về ưu điểm và nhược điểm của việc học trực tuyến.<br>
+                    <textarea name="41" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>2. Miêu tả tiết học?<br>
+                    <textarea name="42" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>3. Miêu tả con mèo nhà bạn?<br>
+                    <textarea name="43" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>4. Cảm nhận về con mèo nhà bạn?<br>
+                    <textarea name="44" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>5. Miêu tả ngôi nhà của bạn?<br>
+                    <textarea name="45" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>6. Code một trang frontend bằng HTML CSS<br>
+                    <textarea name="46" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>7. Viết đoạn văn ngắn giới thiệu bản thân<br>
+                    <textarea name="47" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>8. Mô tả các bạn trong lớp?<br>
+                    <textarea name="48" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>9. Mô tả phương tiện đi lại của bạn?<br>
+                    <textarea name="49" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>10. Mô tả môn học mà bạn yêu thích nhất?<br>
+                    <textarea name="410" rows="4" cols="50"></textarea>
+                </label>
+            </div>
+
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+
+        <div id="result" style="display: none;">
+            <h2>Kết quả:</h2>
+            <p id="score"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
