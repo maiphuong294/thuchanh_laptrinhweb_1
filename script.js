@@ -23,7 +23,7 @@ function submitQuiz() {
 
 function calculateScore() {
 
-    return Math.floor(Math.random() * 10);
+    return Math.floor(Math.random() * 9) + 1;
 }
 function validateForm() {
     var fullName = document.getElementById('fullName').value;
